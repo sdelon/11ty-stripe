@@ -1,0 +1,36 @@
+---
+layout: base
+permalink: /shop/
+eleventyNavigation:
+  key: Shop
+---
+
+<div class="container">
+    <h1>Shop</h1>
+    <div class="products">
+      {% for product in products.items %}
+      <article id="product" class="products__item">
+        <img loading="lazy" class="products__item--img" src="{{ product.image }}" alt="" />
+        <h2 class="products__item--title">{{ product.name }}</h2>
+        <p class="products__item--description">{{ product.description }}</p>
+        <p class="products__item--price"><span id="price" data-price="{{ product.amount }}">{{ product.amount }}</span> €</p>
+        <form action="" method="post">
+          <label for="quantity">Quantité</label>
+          <input
+          type="number"
+          id="quantity"
+          name="quantity"
+          value="1"
+          min="1"
+          max="10"
+          data-price="{{ product.amount }}"
+          class="products__item--qty"
+        />
+        <input type="hidden" name="sku" value="" />
+        <button class="products__item--btn" type="submit">Acheter</button>
+      </form>
+    </article>
+{% endfor %}
+</div>
+</div>
+
