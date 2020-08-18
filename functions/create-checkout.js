@@ -1,10 +1,11 @@
-const stripe = require('stripe')(process.env.STRIPE_API_SECRET);
-const inventory = require('../src/data/products.json')()
+const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
+const inventory = require('../src/data/products.json')
 
 exports.handler = async ({ body }) => {
     try {
         const { sku, quantity } = JSON.parse(body)
-        const product = inventory.find(p => p.sku === sku)
+        console.log(body)
+        const product = inventory.items.find(product => product.sku === sku)
         const validatedQuantity = quantity > 0 ? quantity : 1
         
         const session = await stripe.checkout.sessions.create({
@@ -39,13 +40,13 @@ exports.handler = async ({ body }) => {
                 allowed_countries: ['US']
             },
             mode: 'payment',
-            success_url: '/success',
-            cancel_url: '/',
+            success_url: 'https://localhost:8080/success',
+            cancel_url: 'https://localhost:8080/',
         })
 
         return {
             statusCode: 200,
-            body: JSON.stringify(session.id)
+            body: JSON.stringify(session.id),
         }
     } catch (error) {
         console.log(error)

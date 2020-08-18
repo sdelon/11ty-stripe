@@ -14,7 +14,7 @@ eleventyNavigation:
         <h2 class="products__item--title">{{ product.name }}</h2>
         <p class="products__item--description">{{ product.description }}</p>
         <p class="products__item--price"><span id="price" data-price="{{ product.amount }}">{{ product.amount }}</span> €</p>
-        <form action="" method="post">
+        <form action="/api/create-checkout" method="POST">
           <label for="quantity">Quantité</label>
           <input
           type="number"
@@ -26,7 +26,7 @@ eleventyNavigation:
           data-price="{{ product.amount }}"
           class="products__item--qty"
         />
-        <input type="hidden" name="sku" value="" />
+        <input type="hidden" name="sku" value="{{ product.sku }}" />
         <button class="products__item--btn" type="submit">Acheter</button>
       </form>
     </article>
@@ -34,3 +34,48 @@ eleventyNavigation:
 </div>
 </div>
 
+<script src="https://js.stripe.com/v3/"></script>
+<script type="text/javascript">
+  console.log('Thinking about buying something? Glad to see you in the dev tools!')
+  
+  const stripe = Stripe('{{ environment.stripePublishableKey }}');
+  
+  // Get all the buttons on the page
+  const buttons = document.querySelectorAll('button')
+
+  // Loop over the buttons 
+  const clickHandler = buttons.forEach(b => {
+    b.addEventListener('click', async event => {
+      event.preventDefault()
+      const form = new FormData(event.target.form)
+      const order = {
+        sku: form.get('sku'),
+        quantity: Number(form.get('quantity'))
+      }
+      // the create-checkout serverless function takes the order data
+      // and returns a Stripe Checkout sessionId
+      const response = await fetch('/.netlify/functions/create-checkout', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(order)
+      })
+      .then(response => {
+        console.log(response)
+        return response.json()
+      })
+
+      stripe.redirectToCheckout({
+      // Make the id field from the Checkout Session creation API response
+      // available to this file, so you can provide it as argument here
+      // instead of the {{CHECKOUT_SESSION_ID}} placeholder.
+      sessionId: response
+      }).then(function (result) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer
+        // using `result.error.message`.
+      })
+    })
+  })
+</script>
