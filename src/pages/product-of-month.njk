@@ -1,15 +1,15 @@
 ---
 layout: base
-permalink: /unique-product/
+permalink: /produit-du-mois/
 eleventyNavigation:
-  key: Unique Product
+  key: Produit du mois
 ---
 
 
-<p>Shampoing naturel huile de jojoba</p>
+<p>3 crèmes de jour</p>
 <button
   style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em;width:30%;"
-  id="checkout-button-price_1HHnUfD77Y1fgk7IQFbvDvX0"
+  id="checkout-button-price_1H41f3D77Y1fgk7IxZ0uHYZs"
   role="link"
   type="button"
 >
@@ -22,14 +22,14 @@ eleventyNavigation:
 <script src="https://js.stripe.com/v3"></script>
 <script>
 (function() {
-  var stripe = Stripe('pk_live_ebxKTFTdAdn4d4bEHjQ6zxth0031UsbDi6');
+  var stripe = Stripe('pk_test_WeEoxK96rAQMGdzy7FlEEBxl005CLhc17q');
 
-  var checkoutButton = document.getElementById('checkout-button-price_1HHnUfD77Y1fgk7IQFbvDvX0');
+  var checkoutButton = document.getElementById('checkout-button-price_1H41f3D77Y1fgk7IxZ0uHYZs');
   checkoutButton.addEventListener('click', function () {
     // When the customer clicks on the button, redirect
     // them to Checkout.
     stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1HHnUfD77Y1fgk7IQFbvDvX0', quantity: 1}],
+      lineItems: [{price: 'price_1H41f3D77Y1fgk7IxZ0uHYZs', quantity: 1}],
       mode: 'payment',
       // Do not rely on the redirect to the successUrl for fulfilling
       // purchases, customers may not always reach the success_url after
