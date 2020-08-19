@@ -28,7 +28,7 @@ exports.handler = async ({ body }) => {
                         currency: 'eur',
                         unit_amount: 350,
                         product_data: {
-                            name: 'Shipping and Handling',
+                            name: 'Frais de port',
                             description: 'Frais fixes de livraison standard',
                             images: [],
                         }
@@ -36,8 +36,9 @@ exports.handler = async ({ body }) => {
                     quantity: 1,
                 },
             ],
+            billing_address_collection: 'auto',
             shipping_address_collection: {
-                allowed_countries: ['US']
+                allowed_countries: ['FR', 'BE', 'CH', 'LU'],
             },
             mode: 'payment',
             success_url: 'https://test-ecommerce11ty.netlify.app/success',

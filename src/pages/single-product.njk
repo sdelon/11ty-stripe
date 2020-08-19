@@ -1,0 +1,52 @@
+---
+layout: base
+permalink: /unique-product/
+eleventyNavigation:
+  key: Unique Product
+---
+
+
+<p>Shampoing naturel huile de jojoba</p>
+<button
+  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em;width:30%;"
+  id="checkout-button-price_1HHnUfD77Y1fgk7IQFbvDvX0"
+  role="link"
+  type="button"
+>
+  Acheter
+</button>
+
+<div id="error-message"></div>
+
+<!-- Load Stripe.js on your website. -->
+<script src="https://js.stripe.com/v3"></script>
+<script>
+(function() {
+  var stripe = Stripe('pk_live_ebxKTFTdAdn4d4bEHjQ6zxth0031UsbDi6');
+
+  var checkoutButton = document.getElementById('checkout-button-price_1HHnUfD77Y1fgk7IQFbvDvX0');
+  checkoutButton.addEventListener('click', function () {
+    // When the customer clicks on the button, redirect
+    // them to Checkout.
+    stripe.redirectToCheckout({
+      lineItems: [{price: 'price_1HHnUfD77Y1fgk7IQFbvDvX0', quantity: 1}],
+      mode: 'payment',
+      // Do not rely on the redirect to the successUrl for fulfilling
+      // purchases, customers may not always reach the success_url after
+      // a successful payment.
+      // Instead use one of the strategies described in
+      // https://stripe.com/docs/payments/checkout/fulfillment
+      successUrl: 'https://test-ecommerce11ty.netlify.app/success',
+      cancelUrl: 'https://test-ecommerce11ty.netlify.app/',
+    })
+    .then(function (result) {
+      if (result.error) {
+        // If `redirectToCheckout` fails due to a browser or network
+        // error, display the localized error message to your customer.
+        var displayError = document.getElementById('error-message');
+        displayError.textContent = result.error.message;
+      }
+    });
+  });
+})();
+</script>
