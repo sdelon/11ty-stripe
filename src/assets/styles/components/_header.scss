@@ -1,5 +1,6 @@
 .header {
     padding: $spacing-y 0;
+    font-family: $font-family-monospace;
     &__inner {
         display: flex;
         justify-content: space-between;

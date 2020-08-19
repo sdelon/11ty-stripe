@@ -3,6 +3,7 @@ layout: base
 permalink: /produit-du-mois/
 eleventyNavigation:
   key: Produit du mois
+  order: 1
 ---
 
 
@@ -29,8 +30,11 @@ eleventyNavigation:
     // When the customer clicks on the button, redirect
     // them to Checkout.
     stripe.redirectToCheckout({
-      lineItems: [{price: 'price_1H41f3D77Y1fgk7IxZ0uHYZs', quantity: 1}],
+      lineItems: [
+        {price: 'price_1H41f3D77Y1fgk7IxZ0uHYZs', quantity: 1}
+      ],
       mode: 'payment',
+      
       // Do not rely on the redirect to the successUrl for fulfilling
       // purchases, customers may not always reach the success_url after
       // a successful payment.

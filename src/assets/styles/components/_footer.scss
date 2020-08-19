@@ -2,7 +2,7 @@
     font-size: 0.875rem;
     padding: $spacing-y 0;
     background-color: $gray-lightest;
-
+    font-family: $font-family-monospace;
     &__inner {
         display: flex;
         justify-content: space-between;
