@@ -40,8 +40,8 @@ exports.handler = async ({ body }) => {
                 allowed_countries: ['US']
             },
             mode: 'payment',
-            success_url: 'https://localhost:8888/success',
-            cancel_url: 'https://localhost:8888/',
+            success_url: 'https://test-ecommerce11ty.netlify.app/success',
+            cancel_url: 'https://test-ecommerce11ty.netlify.app/',
         })
 
         return {
