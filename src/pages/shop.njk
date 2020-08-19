@@ -45,9 +45,9 @@ eleventyNavigation:
 
   // Loop over the buttons 
   const clickHandler = buttons.forEach(b => {
-    b.addEventListener('click', async event => {
-      event.preventDefault()
-      const form = new FormData(event.target.form)
+    b.addEventListener('click', async e => {
+      e.preventDefault()
+      const form = new FormData(e.target.form)
       const order = {
         sku: form.get('sku'),
         quantity: Number(form.get('quantity'))

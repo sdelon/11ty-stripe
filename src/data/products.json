@@ -8,21 +8,21 @@
         "amount": 90,
         "currency": "EUR"
     },
-      {
+    {
         "sku": "02",
         "name": "Vitality Shot",
         "description": "Ce produit à l'accent coco fera le bonheur de votre peau",
         "image": "https://images.unsplash.com/photo-1517399527418-a389bdea06c8?auto=format&fit=crop&w=600&h=600&q=80",
         "amount": 30,
         "currency": "EUR"
-      },
-      {
+    },
+    {
         "sku": "03",
         "name": "Shampoing bio et fruité à l'ananas",
         "description": "Ce shampoing redonnera de l'éclat à vos cheveux",
         "image": "https://images.unsplash.com/photo-1517278862943-719c3d4315b3?auto=format&fit=crop&w=600&h=600&q=80",
         "amount": 18,
         "currency": "EUR"
-      }
-    ]
+    }
+  ]
 }

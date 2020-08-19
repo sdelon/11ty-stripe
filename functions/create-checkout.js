@@ -13,8 +13,8 @@ exports.handler = async ({ body }) => {
             line_items: [
                 {
                     price_data: {
-                        currency: 'usd',
-                        unit_amount: product.amount,
+                        currency: 'eur',
+                        unit_amount: product.amount * 100,
                         product_data: {
                             name: product.name,
                             description: product.description,
@@ -25,11 +25,11 @@ exports.handler = async ({ body }) => {
                 },
                 {
                     price_data: {
-                        currency: 'usd',
-                        unit_amount: 300,
+                        currency: 'eur',
+                        unit_amount: 350,
                         product_data: {
                             name: 'Shipping and Handling',
-                            description: 'Flat rate shipping anywhere in the USA!',
+                            description: 'Frais fixes de livraison standard',
                             images: [],
                         }
                     },
@@ -40,8 +40,8 @@ exports.handler = async ({ body }) => {
                 allowed_countries: ['US']
             },
             mode: 'payment',
-            success_url: 'https://localhost:8080/success',
-            cancel_url: 'https://localhost:8080/',
+            success_url: 'https://localhost:8888/success',
+            cancel_url: 'https://localhost:8888/',
         })
 
         return {
