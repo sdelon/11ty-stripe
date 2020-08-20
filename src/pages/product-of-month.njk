@@ -6,18 +6,22 @@ eleventyNavigation:
   order: 1
 ---
 
-
-<p>3 crèmes de jour</p>
-<button
-  style="background-color:#6772E5;color:#FFF;padding:8px 12px;border:0;border-radius:4px;font-size:1em;width:30%;"
-  id="checkout-button-price_1H41f3D77Y1fgk7IxZ0uHYZs"
-  role="link"
-  type="button"
->
-  Acheter
-</button>
-
-<div id="error-message"></div>
+<article class="product">
+  <div class="product__details">
+    <h2 class="product__details--title">3 crèmes de jour</h2>
+    <p class="product__details--desc">{{ products.items[0].description }}</p>  
+    <button
+      class="product__details--btn"
+      id="checkout-button-price_1H41f3D77Y1fgk7IxZ0uHYZs"
+      role="link"
+      type="button"
+    >
+      Acheter
+    </button>
+    <div id="error-message"></div>
+  </div>
+  <img class="product__img" src="{{ products.items[0].image }}">
+</article>
 
 <!-- Load Stripe.js on your website. -->
 <script src="https://js.stripe.com/v3"></script>

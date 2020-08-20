@@ -1,7 +1,7 @@
 .footer {
     font-size: 0.875rem;
     padding: $spacing-y 0;
-    background-color: $gray-lightest;
+    background-color: rgba($brand-olive, 0.2);
     font-family: $font-family-monospace;
     &__inner {
         display: flex;

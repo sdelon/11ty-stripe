@@ -1,0 +1,53 @@
+.hero {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 2fr 50px 2fr;
+    transition: 0.3s ease all;
+    &__img {
+        width: 100%;
+        grid-column: 1 / span 2;
+        grid-row: 1 / span 2;
+    }
+    &__section {
+        width: 100%;
+        text-align: right;
+        border: 5px solid $gray-lightest;
+        height: 80%;
+        grid-column: 2 / span 4;
+        grid-row: 2 / span 2;
+        padding: 10px 60px;
+        h2, p, button {
+            padding: 10px 0px;
+        }
+        &--btn {
+            background: transparent;
+            border: none;
+            font-size: 20px;
+            .fa-arrow-circle-right {
+                margin-right: 8px;
+                font-size: 18px;
+            }
+            &-link {
+                text-decoration: none;
+                color: inherit;
+            }
+            &:hover {
+                color: $brand-olive;
+                font-weight: bold;
+            }
+        }
+    }
+}
+
+@media(max-width: 1000px) {
+    .hero {
+        display: flex;
+        flex-direction: column;
+        transition: 0.3s ease all;
+        &__section {
+            text-align: left;
+            border: none;
+            padding: 0;
+        }
+    }
+}

@@ -1,7 +1,8 @@
 {
     "title": "11ty.Stripe",
     "description": "An 11ty base with Stripe",
-    "url": "https://eleventastic.netlify.app",
+    "url": "https://test-ecommerce11ty.netlify.app/",
     "lang": "fr",
-    "locale": "fr_FR"
+    "locale": "fr_FR",
+    "authorURL": "https://sdelon.com/"
 }

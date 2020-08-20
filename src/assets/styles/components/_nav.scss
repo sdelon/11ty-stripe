@@ -9,7 +9,18 @@
     }
     &__link {
         display: block;
+        text-decoration: none;
+        color: $gray-darkest;
         padding: 0.5em 1em;
+        &:hover {
+            background-color: $brand-olive;
+            color: $gray-lightest;
+        }
+    }
+    &__item {
+        &--active {
+            border-bottom: 3px solid $brand-olive;
+        }
     }
     &__toggle {
         @include button-reset;

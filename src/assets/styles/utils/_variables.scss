@@ -36,14 +36,17 @@ $gray-lightest: #f7f7f9;
 
 // Brand Colors
 
-$brand-red: #fc6767;
+$brand-teal: #598381;
+$brand-green: #08605F;
+$brand-artichoke: #8E936D;
+$brand-olive: #A2AD59;
 
 // Color Mappings
 
 $bg-color: #fff;
 $text-color: $gray-darkest;
-$brand-color-primary: $brand-red;
-$brand-color-primary-offset: darken($brand-red, 6%);
+$brand-color-primary: $brand-teal;
+$brand-color-primary-offset: darken($brand-teal, 6%);
 
 // Typography
 //
